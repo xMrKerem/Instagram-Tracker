@@ -59,21 +59,6 @@ def tracker():
     try:
         profil = instaloader.Profile.from_username(l.context, track)
 
-        try:
-            if profil.is_private and not profil.followed_by_viewer:
-                print("Bu profil gizli ve takip etmediğin için bazı bilgilere ulaşamıyorum.")
-            else:
-                print("\nTakipçileri:")
-                for i in profil.get_followers():
-                    print("-", i.username)
-
-                print("\nTakip Ettikleri:")
-                for i in profil.get_followees():
-                    print("-", i.username)
-
-        except instaloader.exceptions.PrivateProfileNotFollowedException:
-            print("Bu profil gizli ve takip etmediğin için bazı bilgilere ulaşamıyorum.")
-
         new_profile_data = {
             "username": profil.username,
                 "fullname": profil.full_name,
