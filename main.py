@@ -22,7 +22,7 @@ password = os.getenv("INSTAGRAM_PASSWORD")
 channel_id = int(os.getenv("CHANNEL_ID"))
 track = os.getenv("TRACK")
 fail = 0
-main_delay = 10
+main_delay = 600
 max_delay = 4 * 3600
 
 if "giris_" + username in db.all():
