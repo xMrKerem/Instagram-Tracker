@@ -22,7 +22,7 @@ password = os.getenv("INSTAGRAM_PASSWORD")
 channel_id = int(os.getenv("CHANNEL_ID"))
 track = os.getenv("TRACK")
 fail = 0
-main_delay = 600
+main_delay = 10
 max_delay = 4 * 3600
 
 if "giris_" + username in db.all():
@@ -69,7 +69,13 @@ def tracker():
                 "posts": profil.mediacount
         }
 
-        old_profile_data = db.get("old_profile_data_" + track) or {}
+        if not db.get("old_profile_data_" + track):
+            db.set("old_profile_data_" + track, new_profile_data)
+            db.save()
+            print("Profil ilk kez kayıt edildi")
+            return
+
+        old_profile_data = db.get("old_profile_data_" + track)
 
         if old_profile_data != new_profile_data:
             yazdir(new_profile_data, profil)
