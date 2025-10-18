@@ -25,7 +25,7 @@ Bu proje, **belirli bir Instagram hesabını otomatik olarak izleyen** ve profil
 ### 1️⃣ Repoyu Klonla:
 ```bash
 git clone https://github.com/xMrKerem/Instagram-Tracker.git
-cd instatakip
+cd Instagram-Tracker
 ```
 
 ### 2️⃣ .env Dosyası Oluştur
